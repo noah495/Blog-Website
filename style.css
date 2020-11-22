@@ -29,10 +29,28 @@ ul {
   }
   header {
     text-align: center;
-    
-
   }
+  
   body {
     background-color: rgb(36, 97, 133);
   }
-  
+.blog-a {
+        width: 400px;
+        padding: 20px;
+        overflow: hidden;
+    }
+    
+.pic-a {
+        margin-right: 15px;
+        float: left;
+    }
+    
+.text-a{
+        margin-left: 15px;
+        display: block;
+        margin: 2px 0 0 0;
+    }
+  main{
+    background-color: rgb(172, 161, 153);
+
+  }
