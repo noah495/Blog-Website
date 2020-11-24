@@ -1,4 +1,44 @@
 
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "blog";
+
+$conn = mysqli_connect($server , $username, $password, $dbname);
+
+if(isset($_POST['submit'])){
+
+  if(!empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['comment'])){
+  $name = $_POST['name'];
+  $title = $_POST['title'];
+  $comment = $_POST['comment'];
+
+  $query = "insert into form(name,title,comment) values('$name', '$title', '$comment')";
+  $run = mysqli_query($conn,$query) or die('Error: ' . mysqli_error());
+  
+  if($run){
+    echo "Form submitted successfully";
+  }
+  else{
+    echo "Form not submitted";
+  }  
+  } 
+else{
+  echo " all fields required";
+}
+}
+
+
+
+    
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,29 +62,35 @@
   <div class="others">
   <li><a href="">News</a></li>
   <li><a href="">About us</a></li>
-  <li><a href="">Help</a></li>
+  <li><a href="help.php">Help</a></li>
   <li><a href="">Settings</a></li>
 </div>
 </ul>
 </div>
 </nav>
 <main> 
-<h1>Write a comment</h1>
+<h1>Hello!</h1>
+<p>Post your own Blog now, and share your expieriences with the whole world!</p>
 
+<h2>Create your Blog</h2>
+<br>
+
+<div class="makeblog">
 <form action="" method="post">
 <label>Name</label><br>
 <input type="text" name="name">
+<br> <br>
+<label>Title</label><br>
+<textarea name="title" cols="30" rows="1"></textarea><br>
+</label>
 <br>
-<label>Comment</label><br>
+<label>Text</label><br>
 <textarea rows="8" cols="22" name="comment">    
 </textarea>
 <br>
-<label>Reaction</label><br>
-<textarea name="reaction" cols="30" rows="1"></textarea><br>
-</label>
 <input type="submit" name="submit"   value="Submit">
 
-
+</div>
 
 
 </main>
