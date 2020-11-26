@@ -1,39 +1,44 @@
 
+
+
+
+
+
+
+<?php 
+include 'data.php';
+?>
+
 <?php
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "blog";
+    //no warnings
+    error_reporting(E_ALL ^ E_WARNING);
+    $form = array(
+        "name"=> "",
+        "title"=> "",
+        "text"=> ""
+    );
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        foreach($form as $n => $value){
+            $form[$n] = $_POST[$n] ?? "";
+        }
+        $okToSend = true;
+    }
+?>
 
-$conn = mysqli_connect($server , $username, $password, $dbname);
 
-if(isset($_POST['submit'])){
+<?php
 
-  if(!empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['comment'])){
-  $name = $_POST['name'];
-  $title = $_POST['title'];
-  $comment = $_POST['comment'];
 
-  $query = "insert into form(name,title,comment) values('$name', '$title', '$comment')";
-  $run = mysqli_query($conn,$query) or die('Error: ' . mysqli_error());
-  
-  if($run){
-    echo "Form submitted successfully";
-  }
-  else{
-    echo "Form not submitted";
-  }  
-  } 
-else{
-  echo " all fields required";
+if ($okToSend){
+    $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at)
+                                            VALUES (:created_by, :post_title, :post_text, now())');
+    $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]"]);
 }
-}
-
-
+?>
 
     
 
-?>
+
 
 
 
@@ -85,7 +90,7 @@ else{
 </label>
 <br>
 <label>Text</label><br>
-<textarea rows="8" cols="22" name="comment">    
+<textarea rows="8" cols="22" name="text">    
 </textarea>
 <br>
 <input type="submit" name="submit"   value="Submit">

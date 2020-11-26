@@ -1,34 +1,4 @@
-
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "blog";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} 
-
-$sql = "INSERT INTO blog (name, title, comment)
-VALUES ('".$_POST["name"]."','".$_POST["title"]."','".$_POST["comment"]."')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-?>
-
-
-
-
-
-
+<
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,8 +31,12 @@ $conn->close();
 <main>
     <div class="inline">
     <div class="left">
-        <h2>Blog by ...</h2>
-        <h3>Underwater President</h3>
+      <h2>  <?php 
+       include 'data.php';
+       {echo 'Blog by ' .$row["created_by"]. '<br>';}?> </h2>
+        <h3><?php include 'data.php';
+        echo $row["post_title"]. '<br>';
+        ?></h3>
         <!-- <p> The ice is melting, the world is warming, and the oceans are rising. Richer countries bear most of the responsibility for  -->
             <!-- global warming, but poorer island countries like the Maldives are the first to bear the brunt of rising waters. -->
             <!-- The Maldives are a chain of islands famous … </p> -->

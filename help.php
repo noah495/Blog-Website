@@ -31,7 +31,6 @@
 
 
 
-
 </main>
 
 
@@ -68,9 +67,9 @@
     foreach($stmt->fetchAll() as $nr => $x) {
         $text_array[$nr] =  "$x[0]";
     }  
+?>
 
-
-    <div class="card formcard">
+    <div class="formcard">
 <form action="/page.php">
 <table style="width:100%">
 </tr>
