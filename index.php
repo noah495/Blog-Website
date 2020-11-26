@@ -7,6 +7,12 @@
 
 <?php 
 include 'data.php';
+
+       include 'data.php';
+       {echo 'Blog by ' .$row["created_by"]. '<br>';}
+      include 'data.php';
+    echo $row["post_title"]. '<br>';
+        
 ?>
 
 <?php
@@ -83,14 +89,14 @@ if ($okToSend){
 <div class="makeblog">
 <form action="" method="post">
 <label>Name</label><br>
-<input type="text" name="name">
+<input type="text" name="name" cols="32">
 <br> <br>
 <label>Title</label><br>
-<textarea name="title" cols="30" rows="1"></textarea><br>
+<textarea name="title" cols="60" rows="1" ></textarea><br>
 </label>
 <br>
 <label>Text</label><br>
-<textarea rows="8" cols="22" name="text">    
+<textarea rows="50" cols="190" name="text" >    
 </textarea>
 <br>
 <input type="submit" name="submit"   value="Submit">

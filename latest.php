@@ -1,4 +1,4 @@
-<
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,31 +29,25 @@
 </div>
 </nav>
 <main>
-    <div class="inline">
-    <div class="left">
-      <h2>  <?php 
-       include 'data.php';
-       {echo 'Blog by ' .$row["created_by"]. '<br>';}?> </h2>
-        <h3><?php include 'data.php';
-        echo $row["post_title"]. '<br>';
-        ?></h3>
-        <!-- <p> The ice is melting, the world is warming, and the oceans are rising. Richer countries bear most of the responsibility for  -->
-            <!-- global warming, but poorer island countries like the Maldives are the first to bear the brunt of rising waters. -->
-            <!-- The Maldives are a chain of islands famous … </p> -->
-            <!-- <img class="img" src="static/img/sea.jpg" alt="sea" height= 400px width= 460px> -->
-    </div>
-    <div class="center">
-    <h2>Blog by ...</h2>
-        <h3>Underwater President</h3>
+<?php 
+include 'data.php';
+foreach($rows as $row){ ?>
+  <div class="blogs">;
+  <?php
+  echo '<h2 class="created_by">' .$row["created_by"]. '</h2>';
+  echo '<p class="created_at">' .$row["created_at"]. '</p>';
+  echo '<p class="post_title">' .$row["post_title"]. '</p>';
+  echo '<p class="post_text">' .$row["post_text"]. '</p>';
+}
 
-    </div>
-    <div class="right">
-    <h2>Blog by ...</h2>
-        <h3>Underwater President</h3>
+  ?>
 
-    </div>
+</div>
 
-    </div>
+
+
+
+
 </main>
 </body>
 </html>

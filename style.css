@@ -35,24 +35,15 @@ ul {
   
 
  main{
+   text-align: center;
+   background-color: black;
+ }
+ .post_text{
+   text-align: left;
+ }
+ .blogs{
+   border: black;
    background-color: rgb(189, 159, 119);
- }
- .left{
-    text-align: left;
-    float: left;
- }
- .right {
-  text-align: right;
-  float: right;
+   margin: 5px;
 
- }
- .center {
-  text-align: center;
-  float: center;
-
- }
- .inline {
-   display: flex;
-   width: 100%;
-  
  }

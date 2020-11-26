@@ -18,7 +18,7 @@ try {
   }
   
 
-  //$query = 'select * from post limit 3';
+  // $query = 'select * from post limit 3';
   
   //if (($_GET['action']?? '') === 'all'){
       $query = 'select * from post order by created_at desc';
@@ -28,6 +28,6 @@ try {
   $stmt = $pdo ->query($query);
   $rows = $stmt->fetchAll();
   
-  
-  foreach($rows as $row)
-  ?>
+
+   
+?>
