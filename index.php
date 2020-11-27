@@ -1,14 +1,7 @@
-
-
-
-
-
-
-
 <?php 
 
       include 'data.php';
-        
+     
 ?>
 
 <?php
@@ -17,7 +10,8 @@
     $form = array(
         "name"=> "",
         "title"=> "",
-        "text"=> ""
+        "text"=> "",
+        "url"=> ""
     );
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach($form as $n => $value){
@@ -32,13 +26,14 @@
 
 $okToSend = true;
 if ($okToSend){
-    $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at)
-                                            VALUES (:created_by, :post_title, :post_text, now())');
-    $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]"]);
+    $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at, url)
+                                            VALUES (:created_by, :post_title, :post_text, :url, now())');
+    $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]", ":url" => "$form[url]"]);
 }
+
 ?>
 
-    
+
 
 
 
@@ -76,6 +71,34 @@ if ($okToSend){
 </div>
 </nav>
 <main> 
+	<div class="content">
+		<!-- notification message -->
+		<?php if (isset($_SESSION['success'])) : ?>
+			<div class="error success" >
+				<h3>
+					<?php 
+						echo $_SESSION['success']; 
+						unset($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php endif ?>
+		<!-- logged in user information -->
+		<div class="profile_info">
+			<div>
+				<?php  if (isset($_SESSION['user'])) : ?>
+					<strong><?php echo $_SESSION['user']['username']; ?></strong>
+
+					<small>
+						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i> 
+						<br>
+						<a href="index.php?logout='1'" style="color: red;">logout</a>
+					</small>
+
+				<?php endif ?>
+			</div>
+		</div>
+	</div>
 <h1>Hello!</h1>
 <p>Post your own Blog now, and share your expieriences with the whole world!</p>
 
@@ -93,6 +116,10 @@ if ($okToSend){
 <br>
 <label>Text</label><br>
 <textarea rows="50" cols="190" name="text" >    
+</textarea>
+<br>
+<label>url</label><br>
+<textarea rows="1" cols="100" name="url" >    
 </textarea>
 <br>
 <input type="submit" name="submit"   value="Submit">
@@ -113,3 +140,10 @@ if ($okToSend){
 
 </body>
 </html>
+<?php
+include('functions.php');
+if (!isLoggedIn()) {
+    $_SESSION['msg'] = "You must log in first";
+    header('location: login.php');
+}
+?>  

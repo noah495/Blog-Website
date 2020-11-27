@@ -36,7 +36,7 @@ foreach($rows as $row){
   echo '<p class="created_at">' .$row["created_at"]. '</p>';
   echo '<p class="post_title">' .$row["post_title"]. '</p>';
   echo '<p class="post_text">' .$row["post_text"]. '</p>';
-
+  echo 'src= ' .$row["url"]. '</p>';
 
 }
 
