@@ -14,7 +14,7 @@
     <nav>
 <div class="navbar">
 <ul>
-    <li><a href="index.php">Home</a></li>
+    <li><a href="start.php">Home</a></li>
     <li><a href="">Profile</a></li>
     <li><a href="latest.php">Latest Blogs</a></li>
     <div class="others">
