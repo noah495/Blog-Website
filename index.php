@@ -6,12 +6,8 @@
 
 
 <?php 
-include 'data.php';
 
-       include 'data.php';
-       {echo 'Blog by ' .$row["created_by"]. '<br>';}
       include 'data.php';
-    echo $row["post_title"]. '<br>';
         
 ?>
 
@@ -34,7 +30,7 @@ include 'data.php';
 
 <?php
 
-
+$okToSend = true;
 if ($okToSend){
     $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at)
                                             VALUES (:created_by, :post_title, :post_text, now())');
@@ -74,7 +70,7 @@ if ($okToSend){
   <li><a href="">News</a></li>
   <li><a href="">About us</a></li>
   <li><a href="help.php">Help</a></li>
-  <li><a href="">Settings</a></li>
+  <li><a href="register.php">Settings</a></li>
 </div>
 </ul>
 </div>

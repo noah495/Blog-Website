@@ -14,7 +14,7 @@ ul {
   li {
     float: left;
   }
-  
+
   li a {
     display: block;
     color: white;
@@ -36,14 +36,7 @@ ul {
 
  main{
    text-align: center;
-   background-color: black;
- }
- .post_text{
-   text-align: left;
- }
- .blogs{
-   border: black;
    background-color: rgb(189, 159, 119);
-   margin: 5px;
 
+   /* background-color: black; */
  }
