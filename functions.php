@@ -4,7 +4,7 @@
 session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'multi_login');
+$db = mysqli_connect('localhost', 'root', '', 'blog');
 
 // variable declaration
 $username = "";
@@ -48,13 +48,14 @@ function register(){
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
 			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', '$user_type', '$password')";
+						VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
+			$user_type = "none";
 			$query = "INSERT INTO users (username, email, user_type, password) 
-					  VALUES('$username', '$email', 'user', '$password')";
+						VALUES('$username', '$email', 'user', '$password')";
 			mysqli_query($db, $query);
 
 			// get id of the created user

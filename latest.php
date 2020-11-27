@@ -32,16 +32,17 @@
 <?php 
 include 'data.php';
 foreach($rows as $row){
-  echo '<h2 class="created_by">' .$row["created_by"]. '</h2>';
-  echo '<p class="created_at">' .$row["created_at"]. '</p>';
-  echo '<p class="post_title">' .$row["post_title"]. '</p>';
-  echo '<p class="post_text">' .$row["post_text"]. '</p>';
-  echo 'src= ' .$row["url"]. '</p>';
+  echo '<h2 class="created_by">' . $row["created_by"]. '</h2>';
+  echo '<p class="created_at">' . $row["created_at"]. '</p>';
+  echo '<p class="post_title">' . $row["post_title"]. '</p>';
+  echo '<p class="post_text">' . $row["post_text"]. '</p>';
+  echo '<img src="' . $row["post_link"]. '" alt="">';
 
 }
 
 ?>
 
 </main>
+
 </body>
 </html>

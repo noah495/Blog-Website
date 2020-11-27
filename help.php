@@ -14,14 +14,14 @@
     <nav>
 <div class="navbar">
 <ul>
-  <li><a href="index.php">Home</a></li>
-  <li><a href="">Profile</a></li>
-  <li><a href="latest.php">Latest Blogs</a></li>
-  <div class="others">
-  <li><a href="">News</a></li>
-  <li><a href="">About us</a></li>
-  <li><a href="help.php">Help</a></li>
-  <li><a href="">Settings</a></li>
+    <li><a href="index.php">Home</a></li>
+    <li><a href="">Profile</a></li>
+    <li><a href="latest.php">Latest Blogs</a></li>
+    <div class="others">
+    <li><a href="">News</a></li>
+    <li><a href="">About us</a></li>
+    <li><a href="help.php">Help</a></li>
+    <li><a href="">Settings</a></li>
 </div>  
 </ul>
 </div>

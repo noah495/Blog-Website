@@ -1,7 +1,7 @@
 <?php 
 
-      include 'data.php';
-     
+        include 'data.php';
+
 ?>
 
 <?php
@@ -11,7 +11,7 @@
         "name"=> "",
         "title"=> "",
         "text"=> "",
-        "url"=> ""
+        "link"=> ""
     );
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         foreach($form as $n => $value){
@@ -26,9 +26,9 @@
 
 $okToSend = true;
 if ($okToSend){
-    $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at, url)
-                                            VALUES (:created_by, :post_title, :post_text, :url, now())');
-    $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]", ":url" => "$form[url]"]);
+    $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at, post_link)
+                                            VALUES (:created_by, :post_title, :post_text, now(), :post_link)');
+    $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]", ":post_link" => "$form[link]"]);
 }
 
 ?>
@@ -119,7 +119,7 @@ if ($okToSend){
 </textarea>
 <br>
 <label>url</label><br>
-<textarea rows="1" cols="100" name="url" >    
+<textarea rows="1" cols="100" name="link" >    
 </textarea>
 <br>
 <input type="submit" name="submit"   value="Submit">

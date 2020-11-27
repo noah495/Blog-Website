@@ -27,7 +27,4 @@ try {
   
   $stmt = $pdo ->query($query);
   $rows = $stmt->fetchAll();
-  
-
-   
 ?>
