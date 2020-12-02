@@ -27,7 +27,7 @@ ul {
   header {
     text-align: center;
   }
-  body{
-    
+  .main{
+    background: black;
     text-align: center;
   }

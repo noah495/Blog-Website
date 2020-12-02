@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="style1.css">
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+	<title>Registration</title>
 </head>
 <body>
 <div class="header">
@@ -11,19 +11,19 @@
 </div>
 <form class= "" method="post" action="register.php">
 	<div class="input-group">
-		<label>Username</label>
+		<label>Username</label> <br>
 		<input type="text" name="username" value="">
 	</div>
 	<div class="input-group">
-		<label>Email</label>
+		<label>Email</label>	<br>
 		<input type="email" name="email" value="">
 	</div>
 	<div class="input-group">
-		<label>Password</label>
+		<label>Password</label>	<br>
 		<input type="password" name="password_1">
 	</div>
 	<div class="input-group">
-		<label>Confirm password</label>
+		<label>Confirm password</label>	<br>
 		<input type="password" name="password_2">
 	</div>
 	<div class="submit">
