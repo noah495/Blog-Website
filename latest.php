@@ -32,16 +32,20 @@
 </div>
 </nav>
 <main>
+  
 <?php 
 include 'data.php';
+
 foreach($rows as $row){
-  echo '<h2 class="created_by">' . htmlspecialchars($row["created_by"]) . '</h2>';
+  echo '<p class="created_by">' . htmlspecialchars($row["created_by"]) . '</p>';
   echo '<p class="created_at">' . htmlspecialchars($row["created_at"]) . '</p>';
   echo '<p class="post_title">' . htmlspecialchars($row["post_title"]) . '</p>';
   echo '<p class="post_text">' . htmlspecialchars($row["post_text"]) . '</p>';
   echo '<img src="' . htmlspecialchars($row["post_link"]) . '" alt="">';
+  
 
 }
+
 
 ?>
 

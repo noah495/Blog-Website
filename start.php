@@ -6,18 +6,9 @@
 
 <?php
 
-if($post_title === ''){
-    $errors[] = 'Bitte geben Sie einen Titel ein.';
-}
 
-if($post_text === ''){
-    $errors[] = 'Bitte geben Sie einen Text ein.';
-}
-if($created_by === ''){
-    $errors[] = 'Bitte geben Sie einen Namen ein.';
-	}
-
-
+?>
+<?php
 
 
     //no warnings
@@ -38,12 +29,14 @@ if($created_by === ''){
 
 
 <?php
-
+if($_SERVER['REQUEST_METHOD'] === 'POST') {  
+    
 $okToSend = true;
 if ($okToSend){
     $stmt = $pdo->prepare('INSERT INTO post (created_by, post_title, post_text, created_at, post_link)
                                             VALUES (:created_by, :post_title, :post_text, now(), :post_link)');
     $stmt->execute([":created_by" => "$form[name]", ":post_title" => "$form[title]", ":post_text" => "$form[text]", ":post_link" => "$form[link]"]);
+}
 }
 
 ?>
@@ -123,14 +116,14 @@ if ($okToSend){
 <div class="makeblog">
 <form action="" method="post">
 <label>Name</label><br>
-<input type="text" name="name" cols="32">
+<input type="text" name="name" cols="32" required>
 <br> <br>
 <label>Title</label><br>
-<textarea name="title" cols="60" rows="1" ></textarea><br>
+<textarea name="title" cols="60" rows="1" required></textarea><br>
 </label>
 <br>
 <label>Text</label><br>
-<textarea rows="50" cols="190" name="text" >    
+<textarea rows="50" cols="190" name="text" required >    
 </textarea>
 <br>
 <label>url</label><br>
@@ -157,9 +150,9 @@ if ($okToSend){
 </html>
 <?php
 include('functions.php');
-$isLoggedIn;
+/*$isLoggedIn
 if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
-}
+}*/
 ?>  
