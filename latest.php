@@ -37,9 +37,9 @@
 include 'data.php';
 
 foreach($rows as $row){
-  echo '<p class="created_by">' . htmlspecialchars($row["created_by"]) . '</p>';
+  echo '<h1 class="created_by">' . htmlspecialchars($row["created_by"]) . '</h1>';
   echo '<p class="created_at">' . htmlspecialchars($row["created_at"]) . '</p>';
-  echo '<p class="post_title">' . htmlspecialchars($row["post_title"]) . '</p>';
+  echo '<h3 class="post_title">' . htmlspecialchars($row["post_title"]) . '</h3>';
   echo '<p class="post_text">' . htmlspecialchars($row["post_text"]) . '</p>';
   echo '<img src="' . htmlspecialchars($row["post_link"]) . '" alt="">';
   
