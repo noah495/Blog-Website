@@ -1,7 +1,4 @@
 
-    if($postTitle === ''){
-        $errors[] = 'Bitte geben Sie einen Titel für Ihren Post ein.';
-    }
 
 
     
