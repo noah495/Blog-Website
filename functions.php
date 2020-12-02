@@ -4,7 +4,7 @@
 session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'root', '', 'blog');
+$db = mysqli_connect('mysql2.webland.ch', 'd041e_nobuchs', '12345_Db!!!', 'd041e_nobuchs');
 
 // variable declaration
 $username = "";

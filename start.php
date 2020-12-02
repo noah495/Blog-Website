@@ -5,6 +5,21 @@
 ?>
 
 <?php
+
+if($post_title === ''){
+    $errors[] = 'Bitte geben Sie einen Titel ein.';
+}
+
+if($post_text === ''){
+    $errors[] = 'Bitte geben Sie einen Text ein.';
+}
+if($created_by === ''){
+    $errors[] = 'Bitte geben Sie einen Namen ein.';
+	}
+
+
+
+
     //no warnings
     error_reporting(E_ALL ^ E_WARNING);
     $form = array(
@@ -58,7 +73,7 @@ if ($okToSend){
 <nav>
 <div class="navbar">
 <ul>
-  <li><a href="sta.php">Home</a></li>
+  <li><a href="start.php">Home</a></li>
   <li><a href="">Profile</a></li>
   <li><a href="latest.php">Latest Blogs</a></li>
   <div class="others">
@@ -142,6 +157,7 @@ if ($okToSend){
 </html>
 <?php
 include('functions.php');
+$isLoggedIn;
 if (!isLoggedIn()) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');

@@ -1,4 +1,10 @@
 
+    if($postTitle === ''){
+        $errors[] = 'Bitte geben Sie einen Titel für Ihren Post ein.';
+    }
+
+
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
