@@ -40,3 +40,7 @@ ul {
 
    /* background-color: black; */
  }
+.link {
+  text-align: center;
+  text-overflow: initial;
+}
